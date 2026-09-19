@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T14:40:00+07:00",
+  "title": "Design System: Mood n Food",
+  "extensions": {
+    "colorMeta": {
+      "counter": { "role": "neutral", "displayName": "Formica Counter", "canonical": "oklch(39.3% 0.073 164)", "tonalRamp": ["#001a09", "#003320", "#0f4e39", "#367059", "#5a947b", "#7eba9f", "#a5e0c5", "#d8f7e8"] },
+      "counter-deep": { "role": "neutral", "displayName": "Counter Shadow", "canonical": "oklch(32.3% 0.059 164)", "tonalRamp": ["#00190b", "#003221", "#1f4c3a", "#416e5b", "#64927d", "#88b7a2", "#aedec7", "#d8f7e8"] },
+      "on-counter": { "role": "neutral", "displayName": "Counter Chalk", "canonical": "oklch(94.3% 0.026 90)", "tonalRamp": ["#161104", "#2e281a", "#484232", "#696352", "#8c8675", "#b1aa99", "#d7d1be", "#f5eedb"] },
+      "stock-yellow": { "role": "neutral", "displayName": "Card Stock Yellow", "canonical": "oklch(85.0% 0.153 89)", "tonalRamp": ["#200c00", "#3e2200", "#5e3b00", "#835c00", "#a58100", "#c6a856", "#e3d09c", "#f9eed2"] },
+      "stock-pink": { "role": "neutral", "displayName": "Card Stock Pink", "canonical": "oklch(81.2% 0.091 3)", "tonalRamp": ["#2c000e", "#4a0f24", "#682b3d", "#8e4c5e", "#b46e80", "#dc93a5", "#fabecc", "#ffe4ec"] },
+      "stock-sky": { "role": "neutral", "displayName": "Card Stock Sky", "canonical": "oklch(84.5% 0.059 231)", "tonalRamp": ["#001526", "#002d40", "#1c485c", "#3f697f", "#618da3", "#85b2c9", "#abd9f1", "#d5f4ff"] },
+      "stock-ticket": { "role": "neutral", "displayName": "Ticket White", "canonical": "oklch(98.4% 0.008 98)", "tonalRamp": ["#12120e", "#2a2925", "#43423e", "#64635e", "#878681", "#acaba5", "#d2d1cb", "#f0efe9"] },
+      "ink": { "role": "neutral", "displayName": "Receipt Ink", "canonical": "oklch(22.0% 0.009 75)", "tonalRamp": ["#14110d", "#2b2824", "#45423d", "#66635e", "#898580", "#aeaaa5", "#d4d0cb", "#f2eee8"] },
+      "stamp-violet": { "role": "secondary", "displayName": "Rubber-Stamp Violet", "canonical": "oklch(42.9% 0.163 284)", "tonalRamp": ["#110634", "#261a5d", "#3e3284", "#5d54ae", "#7f79d2", "#a4a1ec", "#cbcbff", "#ebebff"] },
+      "chili": { "role": "primary", "displayName": "Chili Red", "canonical": "oklch(53.8% 0.189 28)", "tonalRamp": ["#2d0000", "#530201", "#791913", "#a43c31", "#c96457", "#e79084", "#fcc0b7", "#ffe5e0"] },
+      "chili-deep": { "role": "primary", "displayName": "Chili Ember", "canonical": "oklch(47.9% 0.172 29)", "tonalRamp": ["#2d0000", "#530201", "#791912", "#a43c31", "#c96456", "#e79083", "#fcc0b6", "#ffe5e0"] },
+      "stem": { "role": "tertiary", "displayName": "Chili Stem Green", "canonical": "oklch(47.4% 0.087 164)", "tonalRamp": ["#001b07", "#00351d", "#005036", "#287356", "#4f9779", "#74bc9d", "#a6e0c5", "#d8f7e8"] },
+      "plate-white": { "role": "neutral", "displayName": "Plate White", "canonical": "#ffffff", "tonalRamp": ["#1a1a1a", "#333333", "#4d4d4d", "#666666", "#8c8c8c", "#b3b3b3", "#d9d9d9", "#ffffff"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Wordmark on the first coupon only." },
+      "headline": { "displayName": "Headline", "purpose": "Dish name on the result ticket." },
+      "title": { "displayName": "Title", "purpose": "The question on each coupon." },
+      "section-title": { "displayName": "Section Title", "purpose": "Small Chonburi headings inside a coupon (reasons, backups)." },
+      "body-lead": { "displayName": "Body Lead", "purpose": "Friend-voice line under the wordmark and on the ticket." },
+      "body": { "displayName": "Body", "purpose": "Dish blurb and reasons." },
+      "label": { "displayName": "Label", "purpose": "Answer stubs and button text (Anuphan 600)." },
+      "hint": { "displayName": "Hint", "purpose": "Muted sub-line under a stub label." },
+      "serial": { "displayName": "Serial", "purpose": "Coupon serial numbers only (Chakra Petch 600, tabular)." }
+    },
+    "shadows": [
+      { "name": "coupon-lift", "value": "0 1px 0 rgba(0,0,0,0.12), 0 14px 30px -8px rgba(0,0,0,0.45)", "purpose": "Every coupon on the counter; the only shadow cast onto the ground." },
+      { "name": "chili-glow", "value": "0 6px 14px -6px rgba(140,25,18,0.7)", "purpose": "The primary button only." },
+      { "name": "plate", "value": "inset 0 0 0 10px #f5c842, inset 0 0 0 12px color-mix(in oklab, #f5c842 70%, #1d1a16), 0 10px 20px -8px rgba(0,0,0,0.3)", "purpose": "Result dish plate with a yellow rim." },
+      { "name": "punched-hole", "value": "inset 0 2px 2px rgba(0,0,0,0.35)", "purpose": "A punched progress hole." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Default ease for entrances, stamp and hole transitions." },
+      { "name": "coupon-in", "value": "460ms ease-out; from translateY(26px) rotate(1.2deg) opacity 0.35", "purpose": "A coupon slides onto the counter." },
+      { "name": "stamp-down", "value": "300ms ease-out; scale 1.7 -> 0.94 -> 1, opacity to 0.92", "purpose": "Rubber stamp lands on the chosen stub." },
+      { "name": "stamp-hold", "value": "380ms", "purpose": "Delay after a tap before the coupon tears, so the stamp is seen." },
+      { "name": "coupon-out", "value": "300ms cubic-bezier(0.7, 0, 0.84, 0); to translateY(-48px) rotate(-3.5deg), clip-path inset(0 0 100% 0), opacity 0.6", "purpose": "Answered coupon is torn off." },
+      { "name": "tint", "value": "160ms ease", "purpose": "Hover and press tints on stubs, rows and buttons." },
+      { "name": "reduced-motion", "value": "coupon-in, coupon-out, stamp-down: none; advance after 120ms", "purpose": "prefers-reduced-motion: reduce." }
+    ],
+    "breakpoints": [
+      { "name": "narrow", "value": "max-width: 360px" },
+      { "name": "roomy", "value": "min-width: 640px" },
+      { "name": "short", "value": "max-height: 740px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Coupon",
+      "kind": "card",
+      "refersTo": "coupon",
+      "description": "Card-stock container with header, serial and punched progress; every surface lives on one.",
+      "html": "<div class=\"ds-ground\"><article class=\"ds-coupon\"><header class=\"ds-coupon-head\"><span class=\"ds-mark\">Mood n Food</span><span class=\"ds-serial-group\"><span class=\"ds-hole ds-punched\"></span><span class=\"ds-hole\"></span><span class=\"ds-hole\"></span><span class=\"ds-serial\">ข้อ 2 จาก 3</span></span></header><div class=\"ds-perf\"></div><p class=\"ds-q\">ตอนนี้อยากกินรสไหน</p></article></div>",
+      "css": ".ds-ground { background: var(--counter, #14523c); padding: 24px 16px; } .ds-coupon { --stock: var(--yellow, #f5c842); --muted: color-mix(in oklab, #1d1a16 74%, var(--stock)); --rule: color-mix(in oklab, #1d1a16 30%, var(--stock)); width: min(100%, 440px); margin: 0 auto; background: var(--stock); color: #1d1a16; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 0 rgba(0,0,0,0.12), 0 14px 30px -8px rgba(0,0,0,0.45); } .ds-coupon-head { display: flex; align-items: center; justify-content: space-between; min-height: 56px; padding: 8px 20px; } .ds-mark { font-family: Chonburi, serif; font-size: 15px; } .ds-serial-group { display: flex; align-items: center; gap: 6px; } .ds-serial { margin-left: 4px; font-family: 'Chakra Petch', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 0.04em; color: var(--muted); font-variant-numeric: tabular-nums; } .ds-hole { width: 12px; height: 12px; border-radius: 50%; border: 2px solid color-mix(in oklab, #1d1a16 55%, var(--stock)); } .ds-hole.ds-punched { background: #14523c; border-color: #14523c; box-shadow: inset 0 2px 2px rgba(0,0,0,0.35); } .ds-perf { position: relative; margin: 0 18px; border-top: 2px dashed var(--rule); } .ds-perf::before, .ds-perf::after { content: ''; position: absolute; top: -12px; width: 22px; height: 22px; border-radius: 50%; background: #14523c; } .ds-perf::before { left: -30px; } .ds-perf::after { right: -30px; } .ds-q { margin: 0; padding: 24px 20px; font-family: Chonburi, serif; font-size: 26px; line-height: 1.45; }"
+    },
+    {
+      "name": "Answer Stub with Stamp",
+      "kind": "custom",
+      "refersTo": "stub",
+      "description": "Tear-off answer row; selection is the violet rubber stamp, not a colour change.",
+      "html": "<div class=\"ds-paper\"><button type=\"button\" class=\"ds-stub\" aria-pressed=\"true\"><span class=\"ds-stub-text\"><span class=\"ds-stub-label\">เครียด สมองตื้อ</span><span class=\"ds-stub-hint\">อยากได้อะไรจัดๆ ปลุกสมอง</span></span><span class=\"ds-stamp\">เอา!</span></button><div class=\"ds-perf\"></div><button type=\"button\" class=\"ds-stub\" aria-pressed=\"false\"><span class=\"ds-stub-text\"><span class=\"ds-stub-label\">เหนื่อยล้า หมดพลัง</span><span class=\"ds-stub-hint\">ขออะไรอุ่นๆ ง่ายๆ</span></span></button></div>",
+      "css": ".ds-paper { --stock: #f4a9bb; --muted: color-mix(in oklab, #1d1a16 74%, var(--stock)); --rule: color-mix(in oklab, #1d1a16 30%, var(--stock)); --hover: color-mix(in oklab, #1d1a16 7%, var(--stock)); background: var(--stock); border-radius: 10px; overflow: hidden; max-width: 440px; } .ds-stub { position: relative; display: flex; align-items: center; width: 100%; min-height: 76px; padding: 14px 96px 14px 20px; border: 0; background: none; color: #1d1a16; text-align: left; cursor: pointer; font-family: Anuphan, system-ui, sans-serif; transition: background-color 160ms ease; } .ds-stub:hover { background: var(--hover); } .ds-stub:active { background: color-mix(in oklab, #1d1a16 12%, var(--stock)); } .ds-stub:focus-visible { outline: 3px solid #4b39a3; outline-offset: -4px; } .ds-stub-text { display: flex; flex-direction: column; gap: 2px; } .ds-stub-label { font-weight: 600; font-size: 19px; line-height: 1.4; } .ds-stub-hint { font-size: 15px; line-height: 1.5; color: var(--muted); } .ds-perf { margin: 0 18px; border-top: 2px dashed var(--rule); } .ds-stamp { position: absolute; right: 18px; top: 50%; translate: 0 -50%; rotate: -9deg; padding: 2px 10px 0; border: 3px solid #4b39a3; border-radius: 8px; box-shadow: inset 0 0 0 2px var(--stock), inset 0 0 0 4px #4b39a3; color: #4b39a3; font-family: Chonburi, serif; font-size: 22px; line-height: 1.5; mix-blend-mode: multiply; opacity: 0.92; pointer-events: none; }"
+    },
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Chili red; the single primary action on a screen.",
+      "html": "<button type=\"button\" class=\"ds-btn-primary\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 21s-6.5-5.7-6.5-11a6.5 6.5 0 0 1 13 0c0 5.3-6.5 11-6.5 11z\"/><circle cx=\"12\" cy=\"10\" r=\"2.4\"/></svg>หาร้านแถวนี้</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 54px; padding: 0 20px; border: 0; border-radius: 10px; background: #c42d23; color: #fff; font-family: Anuphan, system-ui, sans-serif; font-weight: 600; font-size: 18px; cursor: pointer; box-shadow: 0 6px 14px -6px rgba(140,25,18,0.7); transition: background-color 160ms ease, transform 160ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary:hover { background: #a92219; } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-primary:focus-visible { outline: 3px solid #4b39a3; outline-offset: 2px; }"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Ink-outlined secondary action (reject and reroll).",
+      "html": "<button type=\"button\" class=\"ds-btn-line\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 11a8 8 0 0 0-14.3-4.9L4 8\"/><path d=\"M4 3.5V8h4.5\"/><path d=\"M4 13a8 8 0 0 0 14.3 4.9L20 16\"/><path d=\"M20 20.5V16h-4.5\"/></svg>ไม่เอา สุ่มใหม่</button>",
+      "css": ".ds-btn-line { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 54px; padding: 0 20px; border: 2px solid #1d1a16; border-radius: 10px; background: transparent; color: #1d1a16; font-family: Anuphan, system-ui, sans-serif; font-weight: 600; font-size: 18px; cursor: pointer; transition: background-color 160ms ease, transform 160ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-line:hover { background: color-mix(in oklab, #1d1a16 7%, #fbfaf4); } .ds-btn-line:active { transform: translateY(1px); } .ds-btn-line:focus-visible { outline: 3px solid #4b39a3; outline-offset: 2px; }"
+    },
+    {
+      "name": "Reasons Box",
+      "kind": "card",
+      "refersTo": "coupon-ticket",
+      "description": "Dashed printed box explaining the pick, in violet stamp ink.",
+      "html": "<div class=\"ds-reasons\"><h2 class=\"ds-reasons-title\">ทำไมต้องจานนี้</h2><ul><li><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12.5l4.5 4.5L19 7.5\"/></svg>ซุปร้อนๆ ช่วยฟื้นแรง</li></ul></div>",
+      "css": ".ds-reasons { background: #fbfaf4; padding: 16px 16px 14px; border: 2px dashed color-mix(in oklab, #1d1a16 30%, #fbfaf4); border-radius: 10px; max-width: 400px; } .ds-reasons-title { margin: 0; font-family: Chonburi, serif; font-weight: 400; font-size: 17px; line-height: 1.5; color: #4b39a3; } .ds-reasons ul { margin: 8px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; } .ds-reasons li { display: flex; align-items: flex-start; gap: 8px; font-family: Anuphan, system-ui, sans-serif; font-size: 17px; line-height: 1.55; color: #1d1a16; } .ds-reasons li svg { flex: none; margin-top: 4px; color: #4b39a3; }"
+    },
+    {
+      "name": "Backup Row",
+      "kind": "custom",
+      "refersTo": "backup-cta",
+      "description": "Alternative dish row: emoji on a pink-rimmed plate, name, violet pick tag.",
+      "html": "<button type=\"button\" class=\"ds-backup\"><span class=\"ds-backup-plate\" aria-hidden=\"true\">🍜</span><span class=\"ds-backup-name\">ก๋วยเตี๋ยวต้มยำ</span><span class=\"ds-backup-cta\">เอาอันนี้</span></button>",
+      "css": ".ds-backup { display: flex; align-items: center; gap: 14px; width: 100%; max-width: 440px; min-height: 68px; padding: 8px 20px; border: 0; background: #fbfaf4; color: #1d1a16; text-align: left; cursor: pointer; font-family: Anuphan, system-ui, sans-serif; } .ds-backup:hover { background: color-mix(in oklab, #1d1a16 7%, #fbfaf4); } .ds-backup:focus-visible { outline: 3px solid #4b39a3; outline-offset: -4px; } .ds-backup-plate { display: grid; place-items: center; flex: none; width: 48px; height: 48px; border-radius: 50%; background: #fff; box-shadow: inset 0 0 0 4px #f4a9bb; font-size: 26px; } .ds-backup-name { flex: 1; font-weight: 600; font-size: 17px; line-height: 1.45; } .ds-backup-cta { flex: none; padding: 4px 10px; border: 2px solid #4b39a3; border-radius: 6px; color: #4b39a3; font-weight: 600; font-size: 14px; }"
+    },
+    {
+      "name": "Restart Link",
+      "kind": "nav",
+      "refersTo": "restart-link",
+      "description": "Quiet underlined action sitting on the counter, outside any coupon.",
+      "html": "<div class=\"ds-counter\"><button type=\"button\" class=\"ds-restart\">ตอบใหม่ตั้งแต่ต้น</button></div>",
+      "css": ".ds-counter { background: #14523c; padding: 16px; text-align: center; } .ds-restart { min-height: 48px; padding: 0 18px; border: 0; border-radius: 8px; background: none; color: #f3ecd9; font-family: Anuphan, system-ui, sans-serif; font-weight: 600; font-size: 16px; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; } .ds-restart:hover { background: #0e3d2c; } .ds-restart:focus-visible { outline: 3px solid #f5c842; outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Food-Court Coupon Counter",
+    "overview": "Every screen is a piece of coloured card stock lying on a flat green formica counter. A quiz question is a coupon, each answer is a tear-off stub you stamp with violet ink, progress is punched holes, and the result is a white queue ticket. The world is the Thai food court: cheap printed paper, dashed perforations, a rubber stamp that lands a little crooked. It rejects the white quiz card with a progress bar and pastel gradient.\n\nDensity is one coupon per viewport on a phone, one decision per coupon (at most four stubs). Colour is committed but disciplined: the card stock carries the colour, ink carries the text, and two accents each have exactly one job. Motion tells the paper story (slide in, stamp down, tear off) and nothing else.",
+    "keyCharacteristics": [
+      "One coupon column (max 440px) centred on a green counter; nothing floats outside a coupon except the restart link.",
+      "Card stock rotates yellow, pink, sky across quiz steps; the result is always the off-white ticket.",
+      "Dashed perforations with semicircular edge notches divide every coupon.",
+      "Violet stamp ink means \"chosen / confirmed / why\". Chili red means \"the one thing to do next\".",
+      "Thai-first type with generous line-heights; food shown as emoji on a plate, UI shown as authored line icons."
+    ],
+    "rules": [
+      { "name": "The One Chili Rule", "body": "Chili red fills at most one control per screen: the primary action. Secondary actions are ink outlines; quiet actions are text.", "section": "colors" },
+      { "name": "The Ink-Means-Chosen Rule", "body": "Violet appears only where the user has chosen something, the app explains a choice, or keyboard focus sits (the focus ring). Never use it for decoration or navigation.", "section": "colors" },
+      { "name": "The Hole-Through-Paper Rule", "body": "Perforation notches and punched holes are painted with the counter colour. If a coupon ever sits on a different ground, the notches must take that ground's colour, or they read as grey dots.", "section": "colors" },
+      { "name": "The Thai Line-Height Rule", "body": "Thai stacks vowels and tone marks above and below the line. Chonburi runs at 1.4 or more wherever it can wrap (the single-line wordmark at 1.1 is the only exception), and Anuphan text runs at 1.5 or more (tight 1.35–1.4 only on one-line labels).", "section": "typography" },
+      { "name": "The Serial-Only Rule", "body": "Chakra Petch is for serial numbers and counts, never for prose or headings.", "section": "typography" },
+      { "name": "The Paper-Is-Flat Rule", "body": "Only the coupon itself casts a shadow onto the counter. Stubs, rows and cards inside a coupon are flat; hover is a tint, not a lift.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do put every new surface on a coupon: pick a stock, give it a serial, divide it with perforations. A dietary-preferences step is a coupon of stubs; a share card is a ticket-stock coupon.",
+      "Do derive muted, rule and hover colours from the coupon's own stock with `color-mix` (74% / 30% / 7% ink).",
+      "Do use violet ink for selection, confirmation and explanations, and chili for the single primary action.",
+      "Do paint perforation notches and punched holes with the colour of the ground the coupon sits on.",
+      "Do keep Chonburi at line-height 1.4 or more and Anuphan at 1.5 or more wherever text can wrap.",
+      "Do use emoji for dishes only, always on a plate. Use authored 24px, 2px round-stroke SVG for every UI icon.",
+      "Do disable coupon-in, coupon-out and stamp animations under `prefers-reduced-motion`; the stamp still shows at 0.92 opacity and the flow advances after 120ms."
+    ],
+    "donts": [
+      "Don't use a white quiz card, a progress bar or a pastel gradient. Progress is punched holes.",
+      "Don't put chili red on more than one control per screen, or use it as decoration beyond the spice chilis.",
+      "Don't use violet for navigation, links or decoration.",
+      "Don't add shadows or lifts to things inside a coupon; only the coupon casts a shadow.",
+      "Don't use emoji as UI icons, or icon-font glyphs anywhere.",
+      "Don't use Chakra Petch for anything but serials and counts.",
+      "Don't mark selection by recolouring a stub; the stamp is the selection mark."
+    ]
+  }
+}

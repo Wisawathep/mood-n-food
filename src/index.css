@@ -1,0 +1,779 @@
+@import '@fontsource/chonburi/400.css';
+@import '@fontsource/anuphan/400.css';
+@import '@fontsource/anuphan/600.css';
+@import '@fontsource/chakra-petch/600.css';
+
+:root {
+  /* โต๊ะฟอร์ไมก้าสีเขียวของเคาน์เตอร์ขายคูปอง */
+  --counter: #14523c;
+  --counter-deep: #0e3d2c;
+  --on-counter: #f3ecd9;
+
+  /* กระดาษคูปอง */
+  --yellow: #f5c842;
+  --pink: #f4a9bb;
+  --sky: #a6d4ec;
+  --ticket: #fbfaf4;
+
+  --ink: #1d1a16;
+  --stamp: #4b39a3; /* หมึกตรายางสีม่วง */
+  --chili: #c42d23;
+  --stem: #1f6b4f;
+
+  --display: 'Chonburi', serif;
+  --text: 'Anuphan', system-ui, sans-serif;
+  --serial: 'Chakra Petch', var(--text);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --gutter: 16px;
+
+  color-scheme: light;
+  font-family: var(--text);
+  color: var(--ink);
+  background: var(--counter);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.07), transparent 55%),
+    var(--counter);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--stamp);
+  outline-offset: 2px;
+}
+
+/* ---------- layout ---------- */
+
+.counter {
+  min-height: 100dvh;
+  padding: 20px var(--gutter) 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .counter {
+    padding-top: 56px;
+  }
+}
+
+/* ---------- coupon ---------- */
+
+.coupon {
+  --stock: var(--yellow);
+  --muted: color-mix(in oklab, var(--ink) 74%, var(--stock));
+  --rule: color-mix(in oklab, var(--ink) 30%, var(--stock));
+  --hover: color-mix(in oklab, var(--ink) 7%, var(--stock));
+
+  width: min(100%, 440px);
+  background: var(--stock);
+  border-radius: 10px;
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.12),
+    0 14px 30px -8px rgba(0, 0, 0, 0.45);
+  animation: coupon-in 460ms var(--ease-out);
+  overflow: hidden;
+}
+
+.stock-yellow {
+  --stock: var(--yellow);
+}
+.stock-pink {
+  --stock: var(--pink);
+}
+.stock-sky {
+  --stock: var(--sky);
+}
+.stock-ticket {
+  --stock: var(--ticket);
+}
+
+@keyframes coupon-in {
+  from {
+    transform: translateY(26px) rotate(1.2deg);
+    opacity: 0.35;
+  }
+}
+
+/* ฉีกคูปองที่ตอบแล้วออกจากเล่ม: ดึงจากมุมขวาบน หมุนรอบมุมซ้ายบนเหมือนฉีกตามรอยปรุ */
+.coupon.is-leaving {
+  transform-origin: 0 0;
+  animation: coupon-out 300ms cubic-bezier(0.7, 0, 0.84, 0) forwards;
+  pointer-events: none;
+}
+
+@keyframes coupon-out {
+  30% {
+    transform: rotate(-2.5deg);
+  }
+  to {
+    transform: translate(-4%, -64px) rotate(-9deg);
+    opacity: 0;
+  }
+}
+
+/* หัวข้อที่รับโฟกัสจากโค้ด (ไม่ใช่ปุ่ม) ไม่ต้องมีกรอบโฟกัส */
+[tabindex='-1']:focus {
+  outline: none;
+}
+
+.coupon-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 56px;
+  padding: 8px 20px;
+}
+
+.wordmark-sm {
+  font-family: var(--display);
+  font-size: 15px;
+}
+
+.serial-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.serial {
+  font-family: var(--serial);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.punches {
+  display: flex;
+  gap: 6px;
+}
+
+.hole {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid color-mix(in oklab, var(--ink) 55%, var(--stock));
+  transition: background-color 300ms var(--ease-out), border-color 300ms var(--ease-out);
+}
+
+/* รูเจาะ: มองทะลุเห็นเคาน์เตอร์ด้านหลัง */
+.hole.punched {
+  background: var(--counter);
+  border-color: var(--counter);
+  box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.35);
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  margin-left: -10px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.back:hover {
+  background: var(--hover);
+}
+
+/* รอยปรุ */
+.perf {
+  position: relative;
+  height: 0;
+  margin: 0 18px;
+  border-top: 2px dashed var(--rule);
+}
+
+.perf::before,
+.perf::after {
+  content: '';
+  position: absolute;
+  top: -12px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--counter);
+}
+
+.perf::before {
+  left: -30px;
+}
+.perf::after {
+  right: -30px;
+}
+
+/* ---------- first coupon intro ---------- */
+
+.intro {
+  padding: 4px 20px 24px;
+}
+
+.wordmark {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(34px, 10.5vw, 46px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  margin-top: 10px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 30ch;
+}
+
+/* ---------- question ---------- */
+
+.question {
+  margin: 0;
+  padding: 24px 0 8px;
+  border: 0;
+  min-width: 0;
+}
+
+.q-title {
+  float: left; /* ให้ legend อยู่ใน flow ปกติ */
+  width: 100%;
+  padding: 0 20px 14px;
+  font-family: var(--display);
+  font-size: 26px;
+  line-height: 1.45;
+}
+
+/* หัวข้อคำถามที่อยู่ใน intro (ไม่ใช่ legend) */
+.q-title-flow {
+  float: none;
+  padding: 0;
+  font-weight: 400;
+}
+
+.stubs {
+  clear: both;
+}
+
+/* ---------- dietary prefs coupon ---------- */
+
+.pref-group {
+  margin: 0;
+  padding: 16px 0 6px;
+  border: 0;
+  min-width: 0;
+}
+
+.group-title {
+  float: left;
+  width: 100%;
+  padding: 0 20px 4px;
+  font-family: var(--display);
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.group-title + * {
+  clear: both;
+}
+
+.stub-compact {
+  min-height: 64px;
+}
+
+.pref-foot {
+  display: grid;
+  gap: 16px;
+  padding: 18px 20px 22px;
+}
+
+.fine-print {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.diet-note {
+  margin-top: 18px;
+}
+
+.diet-note strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.stub {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 76px;
+  padding: 14px 96px 14px 20px;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 160ms ease;
+}
+
+.stub:hover {
+  background: var(--hover);
+}
+
+.stub:active {
+  background: color-mix(in oklab, var(--ink) 12%, var(--stock));
+}
+
+.stub:focus-visible {
+  outline-offset: -4px;
+}
+
+.stub-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stub-label {
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 1.4;
+}
+
+.stub-hint {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.stub-quiet {
+  min-height: 64px;
+  padding-right: 20px;
+  color: var(--muted);
+}
+
+.stub-quiet .stub-label {
+  font-size: 17px;
+}
+
+/* ระดับความเผ็ด: ต้นขั้ว 4 ใบเรียงแนวนอน */
+.levels {
+  clear: both;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 12px 12px;
+  border-top: 2px dashed var(--rule);
+  border-bottom: 2px dashed var(--rule);
+}
+
+.level {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  min-height: 132px;
+  padding: 18px 4px 16px;
+  border: 0;
+  background: none;
+  color: var(--chili);
+  cursor: pointer;
+  transition: background-color 160ms ease;
+}
+
+.level + .level {
+  border-left: 2px dashed var(--rule);
+}
+
+.level:hover {
+  background: var(--hover);
+}
+
+.level:focus-visible {
+  outline-offset: -4px;
+}
+
+.chilis {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 64px;
+  min-height: 52px;
+  align-content: flex-end;
+}
+
+.chilis svg {
+  margin: -2px -3px;
+}
+
+.level:first-child .chilis {
+  color: var(--rule);
+}
+
+.level-label {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--ink);
+  text-align: center;
+}
+
+/* ---------- rubber stamp ---------- */
+
+.stamp {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  translate: 0 -50%;
+  rotate: -9deg;
+  padding: 2px 10px 0;
+  border: 3px solid var(--stamp);
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 2px var(--stock), inset 0 0 0 4px var(--stamp);
+  color: var(--stamp);
+  font-family: var(--display);
+  font-size: 22px;
+  line-height: 1.5;
+  filter: url(#ink);
+  mix-blend-mode: multiply;
+  animation: stamp-down 300ms var(--ease-out) both;
+  pointer-events: none;
+}
+
+.level .stamp {
+  right: 50%;
+  top: 38%;
+  translate: 50% -50%;
+  font-size: 18px;
+}
+
+@keyframes stamp-down {
+  from {
+    scale: 1.7;
+    opacity: 0;
+  }
+  60% {
+    scale: 0.94;
+    opacity: 0.95;
+  }
+  to {
+    scale: 1;
+    opacity: 0.92;
+  }
+}
+
+/* ---------- result ticket ---------- */
+
+.ticket {
+  padding: 4px 20px 24px;
+}
+
+.ticket-intro {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.dish {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  padding: 18px 0 8px;
+}
+
+.plate {
+  display: grid;
+  place-items: center;
+  width: 148px;
+  height: 148px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    inset 0 0 0 10px var(--yellow),
+    inset 0 0 0 12px color-mix(in oklab, var(--yellow) 70%, var(--ink)),
+    0 10px 20px -8px rgba(0, 0, 0, 0.3);
+  font-size: 72px;
+  line-height: 1;
+}
+
+.dish-name {
+  margin-top: 18px;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(28px, 8.4vw, 36px);
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
+.dish-blurb {
+  margin-top: 6px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 32ch;
+  text-wrap: pretty;
+}
+
+.reasons {
+  margin-top: 20px;
+  padding: 16px 16px 14px;
+  border: 2px dashed var(--rule);
+  border-radius: 10px;
+}
+
+.reasons-title {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--stamp);
+}
+
+.reasons ul {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+
+.reasons li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.reasons li svg {
+  flex: none;
+  margin-top: 4px;
+  color: var(--stamp);
+}
+
+.actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 54px;
+  padding: 0 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    transform 160ms var(--ease-out);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  border: 0;
+  background: var(--chili);
+  color: #fff;
+  box-shadow: 0 6px 14px -6px rgba(140, 25, 18, 0.7);
+}
+
+.btn-primary:hover {
+  background: #a92219;
+}
+
+.btn-line {
+  border: 2px solid var(--ink);
+  background: transparent;
+}
+
+.btn-line:hover {
+  background: var(--hover);
+}
+
+/* ปุ่มเงียบ: แค่ตัวหนังสือกับไอคอน ใช้กับการกระทำรอง */
+.btn-quiet {
+  min-height: 48px;
+  border: 0;
+  background: none;
+  font-size: 17px;
+}
+
+.btn-quiet:hover {
+  background: var(--hover);
+}
+
+.backups {
+  padding: 18px 0 10px;
+}
+
+.backups-title {
+  padding: 0 20px 6px;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.backup {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 68px;
+  padding: 8px 20px;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.backup:hover {
+  background: var(--hover);
+}
+
+.backup:focus-visible {
+  outline-offset: -4px;
+}
+
+.backup-emoji {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: inset 0 0 0 4px var(--pink);
+  font-size: 26px;
+}
+
+.backup-name {
+  flex: 1;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.backup-cta {
+  flex: none;
+  padding: 4px 10px;
+  border: 2px solid var(--stamp);
+  border-radius: 6px;
+  color: var(--stamp);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.restart {
+  min-height: 48px;
+  margin-top: 18px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--on-counter);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.restart:hover {
+  background: var(--counter-deep);
+}
+
+.restart:focus-visible {
+  outline-color: var(--yellow);
+}
+
+/* จอแคบมาก: ลดที่เว้นไว้ให้ตรายาง ข้อความจะได้ไม่ขึ้นบรรทัดใหม่ทุกข้อ */
+@media (max-width: 360px) {
+  .stub {
+    padding-right: 72px;
+  }
+  .stamp {
+    right: 12px;
+    font-size: 18px;
+  }
+}
+
+/* จอเตี้ย: ให้ปุ่ม "ไม่เอา สุ่มใหม่" อยู่ในจอแรกโดยไม่ต้องเลื่อน */
+@media (max-height: 740px) {
+  .plate {
+    width: 112px;
+    height: 112px;
+    font-size: 56px;
+  }
+  .dish {
+    padding-top: 10px;
+  }
+  .dish-name {
+    margin-top: 12px;
+  }
+  .ticket-intro {
+    font-size: 16px;
+  }
+  .reasons {
+    margin-top: 14px;
+    padding-block: 12px 10px;
+  }
+  .actions {
+    margin-top: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coupon,
+  .coupon.is-leaving,
+  .stamp {
+    animation: none;
+  }
+  .stamp {
+    opacity: 0.92;
+  }
+}
